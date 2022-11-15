@@ -1,0 +1,30 @@
+from datetime import datetime
+from datetime import timedelta
+
+simdi= datetime.now()
+result= simdi.minute
+result=datetime.ctime(simdi)
+result=datetime.strftime(simdi,"%Y")
+result=datetime.strftime(simdi,"%X")
+result=datetime.strftime(simdi,"%d")
+result=datetime.strftime(simdi,"%A")
+result=datetime.strftime(simdi,"%Y %B %A")
+
+t = "21 April 2019 hour 10:12:30"
+dt = datetime.strptime(t, "%d %B %Y hour %H:%M:%S")
+
+print(dt)
+
+#gun,ay,yil = t.split()
+
+
+birtdate= datetime(2003,9,10,12,30,10)
+result = datetime.timestamp(birtdate) #saniye olrak verir
+result = datetime.fromtimestamp(result)
+
+result = simdi - birtdate #timedelta
+print(simdi)
+#result = simdi + timedelta(days=10)
+result = simdi + timedelta(days=730)
+
+print(result)
