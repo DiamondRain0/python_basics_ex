@@ -1,0 +1,17 @@
+import requests
+from bs4 import BeautifulSoup
+
+
+url = "https://www.n11.com/bilgisayar/dizustu-bilgisayar"
+html = requests.get(url).content
+
+soup = BeautifulSoup(html,"html.parser")
+
+list = soup.find("ul",{"class":"list-ul"}).find_all("li",limit=10)
+
+
+for product in list:
+    name = product.find("h3",{"class":"productName"}).text
+    price = product.find("span",{"class":"newPrice cPoint priceEventClick"}).find("ins").text
+
+    print(name, price)
