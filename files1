@@ -1,0 +1,13 @@
+# "w" silip sadece yeni şeyi yazar
+# "a" sadece ekler
+# "x" yeni oluşturur
+# "r" read okur sadece
+
+#open("C:/users/eylul/desktop/newfile.txt","w")
+
+
+file =open("newfile.txt","a", encoding="utf-8")
+
+file.write("EylüÜl\n")
+
+file.close()
