@@ -1,0 +1,19 @@
+with open("newfile.txt","r",encoding="utf-8")as file:
+    content = file.read()
+    print(content)
+    file.seek(0) # imleci o konuma yollar
+    print(file.tell()) # imlecin konumunu söyler
+    content2= file.read()
+    print(content2)
+    
+    
+   ########################################################
+   
+   
+# "r+" diyince imleç en başta
+# "a"  diyince en sona gidiyor
+with open("newfile.txt","a",encoding="utf-8")as file:
+    file.write("\ndeneme")
+
+with open("newfile.txt","r",encoding="utf-8")as file:
+        print(file.read())
