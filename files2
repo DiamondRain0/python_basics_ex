@@ -1,0 +1,25 @@
+# try:
+#     file= open("newfile.txt","r") # varsayılan şey "r"
+# except FileNotFoundError:
+#     print("dosya okuma hatası")
+# finally:
+#     print("dosya kapandı")
+#     file.close()
+
+file= open("newfile.txt","r", encoding="utf-8")
+
+# for i in file:
+#     print(i,end="")
+
+#content= file.read()
+#print(content)
+#content= file.read(5)
+
+#content= file.readline()
+#print(content,end="")
+
+liste= file.readlines()
+print(liste)
+
+file.close()
+
