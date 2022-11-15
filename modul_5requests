@@ -1,0 +1,15 @@
+import requests
+import json
+result = requests.get("https://jsonplaceholder.typicode.com/todos")
+result = json.loads(result.text)
+# str olarak geliyor bilgi
+
+"""
+file = open("latince.txt","w")
+for i in result:
+    file.write(i["title"])
+    file.write("\n")
+"""    
+
+print(result[0]["title"])
+print(result[0])
