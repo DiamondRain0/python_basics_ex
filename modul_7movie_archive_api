@@ -1,0 +1,33 @@
+import requests
+
+
+class theMovieDb:
+    def __init__(self):
+        self.api_url = "https://api.themoviedb.org/3/"
+        self.api_key = "usdhısugh049ru09wue9wu"
+
+    def getPopulars(self):
+        response = requests.get(self.api_url+ "movie/popular?api_key="+self.api_key+"&language=en-US&page=1")
+        return response.json()
+
+    def getSearchResults(self,keyword):
+        response = requests.get(f"{self.api_url}/search/keyword?api_key={self.api_key}&query={keyword}&page=1")
+        return response.json()
+
+movieApi = theMovieDb()
+
+while True:
+    secim= input("1- popular movies\n2-search movies\n3-exit\nseçim: ")
+
+    if secim=="3":
+        break
+    elif secim=="1":
+        movies = movieApi.getPopulars()
+        for movie in movies["results"]:
+            print(movie["title"])
+    elif secim=="2":
+        keyword = input("keyword: ")
+        movies = movieApi.getSearchResults(keyword)
+        for movie in movies["results"]:
+            print(movie["name"])
+
