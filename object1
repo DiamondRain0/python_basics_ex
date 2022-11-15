@@ -1,0 +1,40 @@
+import random as rd
+class Char:
+    def __init__(self, name,vision):
+        self.name = name
+        self.vision = vision
+        self.lvl = 1
+
+    def print_lvl(self):
+        print(f"{self.name} is {self.lvl} lvl")
+
+    def lvl_up(self,action):
+        if action == "fight":
+            Char.fight(self)
+            self.lvl +=1
+        if action== "eat":
+            Char.eat(self)
+            self.lvl+=1
+
+    def fight(self):
+        enemies= ["pyro","hydro","electro","dendro","cryo","geo"]
+        enemy = enemies[rd.randint(0,5)]
+        print(f"{self.name} has {self.vision}, and your enemies element is {enemy}.\n{self.name} fights like a hero, enemy is defeated!!\n")
+
+
+    def eat(self):
+        meal = input("what do you want to eat? :")
+        print(f"you eat {meal}, it was so good, ATK UP!!\n")
+name = input("what is your characters name: ")
+vision = input("what is your characters vision: ")
+a_char = Char(name,vision)
+while True:
+    action = input("*****what do you want to do?\n*to see lvl type lvl\n*to eat something type eat\n*to start a fight type fight\n*to quit type q\n     :")
+    if action == "q":
+        break
+    if action == "lvl":
+        a_char.print_lvl()
+    if action == "eat":
+        a_char.lvl_up("eat")
+    if action == "fight":
+        a_char.lvl_up("fight")
