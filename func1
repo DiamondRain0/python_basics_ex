@@ -1,0 +1,21 @@
+
+# outher(10)
+
+
+def factorial(number):
+    if not isinstance(number, int):
+        raise TypeError("number must be an integer")
+    if not number>=0:
+        raise ValueError("number must be zero or positive")
+
+    def inner_fac(number):
+        if number <= 1:
+            return 1
+        return number * inner_fac(number-1)
+
+    return inner_fac(number)
+
+try:
+    print(factorial("5"))
+except Exception as ex:
+    print(ex)
