@@ -1,0 +1,58 @@
+# inheritance (kalıtım): miras alma
+
+
+# person => name, lastname, age, eat(),rum(),drink()
+# student(person), teacher(person)
+
+# animal => dog(animal), cat(animal)
+
+
+
+class Person:
+    def __init__(self,fname,lname):
+        self.fname = fname
+        self.lname = lname
+        print("person created")
+    def who_am_i(self):
+        print("i am a person")
+    def eat(self):
+        print("i am eating")
+
+
+class Student(Person):
+    def __init__(self,fname,lname, number):
+        Person.__init__(self,fname,lname)
+        self.studentNumber = number
+        print("student crated")  
+    # override   
+    def who_am_i(self):
+        print("i am a student")
+    def sayHello(self):
+        print(" hello im a student")
+
+
+class Teacher(Person):
+    def __init__(self, fname, lname,branch):
+        super().__init__(fname,lname)
+        self.branch = branch
+
+    def who_am_i(self):
+        print(f"i am a {self.branch} teacher")
+
+
+
+
+p1 = Person("ali","yılmaz")
+s1 = Student("çınar","turan", 1234)
+t1 = Teacher("serkan","yılmaz","math")
+
+print(p1.fname , p1.lname)
+print(s1.fname , s1.lname, s1.studentNumber)
+
+
+p1.who_am_i()
+s1.who_am_i()
+s1.eat()
+s1.sayHello()
+t1.who_am_i()
+
