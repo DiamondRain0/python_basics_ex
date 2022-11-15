@@ -1,0 +1,55 @@
+import os # işletim sistemiyle ilgili
+import datetime
+
+result= os.name
+
+# *******dizin değiştirme*********
+#os.chdir("C:\\")   buranın altına getirir
+#os.chdir("..")    bir üst dizine gider
+
+#********* klasör oluşturma********
+#os.mkdir("newdirector")
+#os.makedirs("newdiractory/yeniklasör")
+#os.rename("newdirectory","yeniklasör")
+#os.rmdir("newdirectory")
+
+
+#***********listeleme*********
+#result= os.listdir()
+"""
+for dosya in os.listdir():
+    if dosya.endswith(".py"):
+        print(dosya)
+"""
+# result= os.listdir("C:\\")
+
+
+#*******etkin dizin öğrenme*******
+#result= os.getcwd()
+
+
+result = os.stat("aaa.py")
+#result = result.st_size / 1024
+#result= datetime.datetime.fromtimestamp(result.st_ctime)
+#     ^ oluşturulma tarihi
+
+#result= datetime.datetime.fromtimestamp(result.st_atime)
+#     ^ son erişilme tarihi
+
+#result= datetime.datetime.fromtimestamp(result.st_mtime)
+#     ^ son değiştirilme tarihi
+
+
+#os.system("notepad.exe")
+
+#  ****** path  *********
+
+result = os.path.abspath("aaa.py")
+result = os.path.dirname(os.path.abspath("aaa.py"))
+result = os.path.exists("os.py") # vae mı yok mu diye bakıyo
+
+result = os.path.join("C:\\","deneme","deneme1")
+result= os.path.split("C:\\deneme")
+result= os.path.splitext("os.py")
+result = result[1]
+print(result)
